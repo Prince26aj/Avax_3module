@@ -1,18 +1,14 @@
 //SPDX-License-Identifier: UNLICENSED
 
-// Solidity files have to start with this pragma.
-// It will be used by the Solidity compiler to validate its version.
 pragma solidity ^0.8.9;
-
-// We import this library to be able to use console.log
 import "hardhat/console.sol";
 
 
 // This is the main building block for smart contracts.
 contract Token {
     // Some string type variables to identify the token.
-    string public name = "My Hardhat Token";
-    string public symbol = "MHT";
+    string public name = "My Hardhat";
+    string public symbol = "MIT";
     address private _owner;
 
     uint256 public totalSupply = 1000000;
@@ -81,13 +77,6 @@ contract Token {
         // Notify off-chain applications of the transfer.
         emit Transfer(msg.sender, to, amount);
     }
-
-    /**
-     * Read only function to retrieve the token balance of a given account.
-     *
-     * The `view` modifier indicates that it doesn't modify the contract's
-     * state, which allows us to call it without executing a transaction.
-     */
     function balanceOf(address account) external view returns (uint256) {
         return balances[account];
     }
